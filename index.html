@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OP Learning Lead — Programme Needs &amp; Hours | GIBS</title>
+<meta name="description" content="For the OP Learning Lead: work through what a specific Open Programme needs, and see the hours that follow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <img src="assets/gibs-logo.png" alt="GIBS" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-title">OP Learning Lead</span>
+        <span class="brand-sub">Programme customisation — needs &amp; hours</span>
+      </div>
+    </div>
+    <nav class="tabnav" aria-label="Main sections" id="tabnav">
+      <button class="tab-btn is-active" data-tab="decide" role="tab" aria-selected="true" aria-controls="panel-decide" id="tab-decide">
+        <span class="tab-num">01</span> When to use one
+      </button>
+      <button class="tab-btn" data-tab="match" role="tab" aria-selected="false" aria-controls="panel-match" id="tab-match">
+        <span class="tab-num">02</span> Which one
+      </button>
+      <button class="tab-btn" data-tab="cost" role="tab" aria-selected="false" aria-controls="panel-cost" id="tab-cost">
+        <span class="tab-num">03</span> Hours &amp; cost
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== PANEL 1: WHAT DOES THIS PROGRAMME NEED ===================== -->
+  <section class="panel is-active" id="panel-decide" role="tabpanel" aria-labelledby="tab-decide">
+    <div class="panel-inner">
+
+      <div class="panel-head">
+        <h1>What does this programme need from its Learning Lead?</h1>
+        <p class="panel-lede">For a specific Open Programme, e.g. GEDP. Tick every need that genuinely applies — this isn't a yes/no gate, the Learning Lead is already in place for this tool's purpose. What you tick here sets which tasks and hours appear in Step 03.</p>
+      </div>
+
+      <div class="decide-grid">
+
+        <div class="decide-controls">
+          <div class="control-card">
+            <h2 class="control-q">Which of these apply? <span class="control-count" id="op-criteria-count-label">0 selected</span></h2>
+            <p class="control-hint">What does this programme need from its Learning Lead?</p>
+            <div class="criteria-list" id="op-criteria-list"><!-- populated by JS --></div>
+            <p class="control-hint flagship-hint" id="flagship-hint" hidden>Flagship programme doesn't add its own hours — treat it as a reason to execute the other needs you've ticked more rigorously, not as a separate task.</p>
+          </div>
+        </div>
+
+        <div class="decide-verdict" id="verdict-panel">
+          <div class="verdict-sticky">
+            <div class="verdict-card" id="verdict-card">
+              <div class="metric-label">Needs selected</div>
+              <ul class="verdict-reasons" id="verdict-reasons"><li class="reason-empty" id="reason-empty">None yet — tick what applies on the left.</li></ul>
+            </div>
+
+            <div class="pool-note" id="pool-note-op">
+              <strong>Remember:</strong> Learning Leads are appointed only from the approved pool of nine onboarded Professional Associates — the same pool used for Custom Programmes — subject to final approval by the central faculty allocation committee.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <details class="source-details" id="op-decide-source">
+        <summary>Where this guidance comes from</summary>
+        <p>The six criteria are the Open Programme Learning Lead decision criteria provided by GIBS. Their use here, to select which tasks and hours apply to a specific programme, is a working agreement between PAL and the OP SPM, not yet a published document — treat it as current internal guidance, not policy.</p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ===================== PANEL 2: WHICH LEARNING LEAD ===================== -->
+  <section class="panel" id="panel-match" role="tabpanel" aria-labelledby="tab-match" hidden>
+    <div class="panel-inner">
+
+      <div class="panel-head">
+        <h1>Which Learning Lead should I use?</h1>
+        <p class="panel-lede">Nine approved Professional Associates. Match on fit, not on who you already know — the full pool is available for every appointment, subject to final sign-off by the central faculty allocation committee.</p>
+      </div>
+
+      <div class="match-toolbar">
+        <div class="search-field">
+          <label for="lead-search" class="visually-hidden">Search Learning Leads</label>
+          <input type="search" id="lead-search" placeholder="Search by name, sector, or strength…" autocomplete="off">
+        </div>
+        <div class="sector-chips" id="sector-chips" role="group" aria-label="Filter by sector"></div>
+      </div>
+
+      <div class="leads-grid" id="leads-grid"><!-- populated by JS --></div>
+
+      <div class="sector-ref">
+        <h2>Sector fit at a glance</h2>
+        <p class="control-hint">Most of the pool is broad and generalist by design — use this as a tiebreaker, not a hard filter.</p>
+        <div class="sector-table" id="sector-table"><!-- populated by JS --></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== PANEL 3: HOURS & COST ===================== -->
+  <section class="panel" id="panel-cost" role="tabpanel" aria-labelledby="tab-cost" hidden>
+    <div class="panel-inner">
+
+      <div class="panel-head">
+        <h1>What will it take?</h1>
+        <p class="panel-lede">Built on the OP Learning Lead Calculator. Hours here come from the needs you ticked in Step 01, not from a scenario percentage — only tasks tied to a selected need are counted.</p>
+      </div>
+
+      <div class="cost-grid">
+        <div class="cost-config">
+          <div class="control-card">
+            <div class="control-step">From Step 01</div>
+            <h2 class="control-q">Selected needs</h2>
+            <div class="op-scenario-cards" id="op-selected-summary"><!-- populated by JS --></div>
+          </div>
+
+          <div class="control-card">
+            <div class="control-step">Optional</div>
+            <h2 class="control-q">Your rate (Rand per hour)</h2>
+            <p class="control-hint">The source calculator has a day-rate field left blank for the user to fill in — this tool asks the same way. Enter your own standard rate to see a live total; leave blank to see hours only.</p>
+            <input type="number" id="op-rate-input" placeholder="e.g. 2000" min="0" step="50" class="rate-field">
+          </div>
+        </div>
+
+        <div class="cost-result">
+          <div class="metric-row">
+            <div class="metric-card">
+              <div class="metric-label">Total hours</div>
+              <div class="metric-value" id="op-hours-total">0</div>
+              <div class="metric-sub" id="op-hours-tag">0 of 6 needs selected</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">of full baseline</div>
+              <div class="metric-value" id="op-hours-diff">0 hrs</div>
+              <div class="metric-sub" id="op-hours-pct">0 hrs of 41 hrs if every need applied</div>
+            </div>
+          </div>
+
+          <div class="fee-card">
+            <div class="metric-label">Your rate estimate</div>
+            <div class="fee-value" id="op-rate-fee-value">Enter a rate to calculate <span>&nbsp;</span></div>
+            <p class="fee-note">Neither the OP calculator nor this tool has a published Rand rate — the source workbook leaves the day-rate cell blank for the user to fill in. <strong>Confirm the actual fee with PAL</strong> before quoting a client.</p>
+          </div>
+
+          <div class="bars-card" id="op-bars-card"></div>
+
+          <button class="print-btn" id="print-op-cost-btn" type="button">Print / save this needs &amp; hours summary</button>
+        </div>
+      </div>
+
+      <div class="cat-chips" id="op-cat-chips"></div>
+
+      <div class="op-portfolio-note">
+        <strong>If the Learning Lead continues across multiple Open Programmes:</strong> <span id="op-portfolio-note-text"></span>
+      </div>
+
+      <div class="table-wrap" id="op-table-wrap">
+        <div class="tbl-scroll">
+          <table>
+            <caption class="visually-hidden">Task-by-task hours, grouped by which need each task is tied to</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="width:26%;">Task</th>
+                <th scope="col" style="width:32%;">Notes</th>
+                <th scope="col" class="r" style="width:12%;">Hours</th>
+                <th scope="col" style="width:30%;">Custom Programme equivalent</th>
+              </tr>
+            </thead>
+            <tbody id="op-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="positioning-card">
+        <h2>Positioning the investment</h2>
+        <ul>
+          <li>Frame it as protecting the programme's market position, not just its content — an OP programme competes for delegates against every other option in the market, not just internally against other GIBS programmes.</li>
+          <li>Base the Learning Lead's scope on which needs actually apply to this programme — the hours above only include tasks tied to needs ticked in Step 01, not a flat percentage of everything.</li>
+          <li>Flagship status carries no hours of its own — use it as a reason to execute the other selected needs more rigorously, not as a line item.</li>
+        </ul>
+      </div>
+
+      <details class="source-details">
+        <summary>Where this guidance comes from</summary>
+        <p>Hours and task notes are taken directly from the OP Learning Lead Calculator (.xlsx, 06/11/2025). The mapping from each need to specific tasks is a working agreement between PAL and the OP SPM, not yet a published document. Priority values exist in the source calculator but aren't used here, at GIBS's request — that column wasn't scrutinised when the source was built. The multi-programme guidance note is shown as-is from the source; GIBS flagged that it hasn't held up cleanly enough in practice to build into a working model.</p>
+      </details>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="sitefoot">
+  <p>Internal reference tool for the OP Learning Lead and OP SPM. Not a substitute for the current Learning Lead Decision Framework, OP costing sheet, or a conversation with PAL.</p>
+</footer>
+
+<div id="print-area" class="print-only" aria-hidden="true"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
